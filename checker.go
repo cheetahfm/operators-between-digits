@@ -20,7 +20,7 @@ func maxParallelism() int {
 // returns only those with the expected result
 // via validExpressions channel
 func CheckExpressions(expressions <-chan string, validExpressions chan<- string,
-	expectedResult int) {
+	expectedResult int64) {
 	numThreads := maxParallelism()
 	var wg sync.WaitGroup
 

@@ -9,7 +9,7 @@ import (
 func TestCheckExpressions(t *testing.T) {
 	testCases := []struct {
 		expressions      []string
-		expectedResult   int
+		expectedResult   int64
 		validExpressions map[string]struct{}
 	}{
 		{

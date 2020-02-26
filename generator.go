@@ -17,7 +17,7 @@ func (s Sign) String(printNothingSign bool) string {
 	return string(s)
 }
 
-type ExpressionDigits []int
+type ExpressionDigits []int64
 type ExpressionSigns []Sign
 
 type Expression struct {
@@ -36,12 +36,12 @@ func (e Expression) String(printNumbers bool, printNothingSign bool) string {
 
 	for i := 0; i < len(e.Signs); i++ {
 		if printNumbers {
-			buffer.WriteString(strconv.Itoa(e.Digits[i]))
+			buffer.WriteString(strconv.FormatInt(e.Digits[i], 10))
 		}
 		buffer.WriteString(e.Signs[i].String(printNothingSign))
 	}
 	if printNumbers {
-		buffer.WriteString(strconv.Itoa(e.Digits[len(e.Signs)]))
+		buffer.WriteString(strconv.FormatInt(e.Digits[len(e.Signs)], 10))
 	}
 	return buffer.String()
 }

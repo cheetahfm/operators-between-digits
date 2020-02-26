@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	expectedResult := 200
+	var expectedResult int64 = 200
 	var digits = opb.ExpressionDigits{9, 8, 7, 6, 5, 4, 3, 2, 1, 0}
 	var signs = opb.ExpressionSigns{'_', '+', '-'}
 

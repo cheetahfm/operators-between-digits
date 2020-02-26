@@ -6,14 +6,14 @@ import (
 	"strconv"
 )
 
-func getAllNumbers(expr string) []int {
-	var result []int
+func getAllNumbers(expr string) []int64 {
+	var result []int64
 
 	r := regexp.MustCompile(`([0-9]+)`)
 	matches := r.FindAllString(expr, -1)
 
 	for _, m := range matches {
-		num, err := strconv.Atoi(m)
+		num, err := strconv.ParseInt(m, 10, 64)
 		if err != nil {
 			log.Fatalf("Parsing number '%v' error: %v\n", m, err)
 		}
@@ -40,7 +40,7 @@ func checkUnsupportedSigns(expr string) {
 }
 
 // for more complex case, parser would be much better
-func CalculateExpression(expr string) int {
+func CalculateExpression(expr string) int64 {
 	checkUnsupportedSigns(expr)
 
 	numbers := getAllNumbers(expr)
